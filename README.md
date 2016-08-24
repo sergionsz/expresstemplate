@@ -25,5 +25,10 @@ npm install
 6. Erase example test from tests
 7. Modify this README
 8. Change the remote URL for the repo
+9. Erase .git folder
+10. Run
+```
+git init .
+```
 
 Now you're ready to go.
