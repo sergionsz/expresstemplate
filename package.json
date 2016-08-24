@@ -12,7 +12,7 @@
     "scss": "node-sass --output-style compressed -o public/css src/scss",
     "autoprefixer": "postcss -u autoprefixer -r public/css/*",
     "build:css": "npm run scss && npm run autoprefixer",
-    "prebuild:js": "mkdirp public/js; mkdirp tmpjs",
+    "prebuild:js": "mkdirp public/js",
     "build:js": "webpack",
     "preimagemin": "mkdirp public/img",
     "imagemin": "imagemin src/img/* --out-dir=public/img",
@@ -20,13 +20,16 @@
     "fonts": "cp src/fonts/* public/fonts/",
     "build": "npm run build:css && npm run build:js && npm run imagemin && npm run fonts",
     "tape": "babel-tape-runner test/unit/*",
-    "nightwatch": "nightwatch",
+    "nightwatch": "npm start & nightwatch",
     "test": "npm run tape && npm run nightwatch",
     "start": "mkdirp logs && node ./bin/www.js",
     "rebuild": "npm run build && npm start",
     "rebuild:js": "npm run build:js && npm start",
     "rebuild:css": "npm run build:css && npm start",
-    "postinstall": "npm run build"
+    "postinstall": "npm run build",
+    "clean": "rimraf pulic logs nwreports selenium-debug.log",
+    "clean:all": "npm run clean && rimraf npm_modules",
+    "preversion": "npm run build && npm test"
   },
   "repository": {
     "type": "git",
@@ -52,7 +55,8 @@
     "jquery": "^3.1.0",
     "jsdom": "^9.4.2",
     "jsdom-global": "^2.1.0",
-    "nightwatch": "^0.9.8"
+    "nightwatch": "^0.9.8",
+    "rimraf": "^2.5.4"
   },
   "dependencies": {
     "autoprefixer": "6.3.6",

@@ -1,12 +1,13 @@
 # Express Template
 Express template for new projects. This template uses:
-- [node-sass](https://github.com/sass/node-sass, "node-sass")
 - [autoprefixer](https://github.com/postcss/autoprefixer, "autoprefixer")
-- [uglify](https://github.com/mishoo/UglifyJS2, "UglifyJS2")
-- [imagemin](https://github.com/imagemin/imagemin, imagemin)
-- [tape](https://github.com/substack/tape, "tape")
-- [winston](https://github.com/winstonjs/winston, "winston")
 - [babel](https://github.com/babel/babel/, "babel")
+- [imagemin](https://github.com/imagemin/imagemin, imagemin)
+- [nightwatch](http://nightwatchjs.org/, "nightwatch")
+- [node-sass](https://github.com/sass/node-sass, "node-sass")
+- [tape](https://github.com/substack/tape, "tape")
+- [webpack](https://webpack.github.io/, "webpack")
+- [winston](https://github.com/winstonjs/winston, "winston")
 
 As soon as you clone, make sure you perform the following actions:
 
