@@ -12,16 +12,16 @@
     "scss": "node-sass --output-style compressed -o public/css src/scss",
     "autoprefixer": "postcss -u autoprefixer -r public/css/*",
     "build:css": "npm run scss && npm run autoprefixer",
-    "prebabel": "mkdirp public/js; mkdirp tmpjs",
-    "babel": "babel src/js --out-dir tmpjs",
-    "uglify": "uglifyjs tmpjs/*.js -m -c -o public/js/app.js",
-    "build:js": "npm run babel && npm run uglify",
+    "prebuild:js": "mkdirp public/js; mkdirp tmpjs",
+    "build:js": "webpack",
     "preimagemin": "mkdirp public/img",
     "imagemin": "imagemin src/img/* --out-dir=public/img",
     "prefonts": "mkdirp public/fonts/",
     "fonts": "cp src/fonts/* public/fonts/",
     "build": "npm run build:css && npm run build:js && npm run imagemin && npm run fonts",
-    "test": "tape tests/*.js",
+    "tape": "babel-tape-runner test/unit/*",
+    "nightwatch": "nightwatch",
+    "test": "npm run tape && npm run nightwatch",
     "start": "mkdirp logs && node ./bin/www.js",
     "rebuild": "npm run build && npm start",
     "rebuild:js": "npm run build:js && npm start",
@@ -43,15 +43,21 @@
     "url": "https://github.com/sergionsz/expresstemplate/issues"
   },
   "devDependencies": {
+    "babel-tape-runner": "^2.0.1",
     "eslint": "^2.13.1",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-import": "^1.9.2",
     "eslint-plugin-jsx-a11y": "^1.5.3",
-    "eslint-plugin-react": "^5.2.2"
+    "eslint-plugin-react": "^5.2.2",
+    "jquery": "^3.1.0",
+    "jsdom": "^9.4.2",
+    "jsdom-global": "^2.1.0",
+    "nightwatch": "^0.9.8"
   },
   "dependencies": {
     "autoprefixer": "6.3.6",
-    "babel-cli": "6.10.1",
+    "babel-core": "^6.13.2",
+    "babel-loader": "^6.2.5",
     "babel-preset-es2015": "6.9.0",
     "debug": "2.2.0",
     "dotenv": "2.0.0",
@@ -62,7 +68,7 @@
     "postcss-cli": "2.5.2",
     "pug": "2.0.0-beta3",
     "tape": "4.6.0",
-    "uglify-js": "2.6.4",
+    "webpack": "^1.13.2",
     "winston": "2.2.0"
   }
 }
