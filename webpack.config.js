@@ -8,6 +8,8 @@ module.exports = {
     loaders: [
       { test: /\.js$/,
       loader: 'babel-loader' },
+      { test: /\.scss$/,
+      loaders: ['style', 'css', 'scss'] },
     ],
   },
 };

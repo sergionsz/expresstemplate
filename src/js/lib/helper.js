@@ -10,7 +10,7 @@
  *
  * @returns {HTMLElement} The newly created element.
  */
-export function createDOMElement (type, className = [], attributes = {}, ...content) {
+function createDOMElement(type, className = [], attributes = {}, ...content) {
   const node = document.createElement(type);
   if (typeof className === 'string') {
     node.classList.add(className.trim());
@@ -45,3 +45,5 @@ export function createDOMElement (type, className = [], attributes = {}, ...cont
 
   return node;
 }
+
+export { createDOMElement };
